@@ -13,7 +13,73 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model dados_cliente{}
-model peças{}
-model forncedores{}
-model orçamento{}
+model Clientes{
+  id Int @id @default(autoincrement())
+  nome String
+  telefone String @unique
+  email String
+  cidade String
+  cep String
+  rua String
+  num_casa String
+  complementos String 
+  visita Visita?
+  orcamento Orcamento?
+
+}
+
+model Pecas{
+  id Int @id @default(autoincrement())
+  descricao String
+  especificao_peca_componente String
+  valor_liquido_unitario String
+  ncm String
+  leadtime Int
+  tempo_garantia Int
+  orcamento Orcamento?
+}
+
+
+model Forncedores{
+  cnpj Int @id @unique
+  nome_empresa String
+  razao_social String
+  nome_vendedor String
+  telefone_fornecedor Int
+  dados_bancarios Int
+  forma_recebimento String
+  conducao_pagamento String
+}
+
+model Visita{
+  id Int @id@default(autoincrement())
+  clientes Clientes @relation(fields: [clienteId], references: [id])
+  clienteId Int @unique
+  tipoEdificao String 
+  tipo_telha String
+  localizacao_imovel String
+  orientacao_telhado String
+  inclinacao_telhado Int
+  ponto_de_ancoragem String
+  espaco_de_elevacao_ate_o_telhado Int
+  informacoes_adicionais String
+  orcamento Orcamento?
+}
+model Orcamento{
+  id Int @id @default(autoincrement())
+  clientes Clientes @relation(fields: [clienteId], references: [id])
+  clienteId Int @unique
+  visita Visita @relation(fields: [visitaId], references: [id])
+  visitaId Int @unique
+  pecas Pecas @relation(fields: [pecasid], references: [id])
+  pecasid Int @unique
+  nome_responsavel Int 
+  khw_consumido_ultimo_ano Int
+  quantidade_pecas Int
+  valor_instacao Int
+  valor_homologacao Int
+  descontos Int
+  forma_pagamento String
+  prazo_instalacao DateTime
+  prazo_homolacao DateTime
+}
