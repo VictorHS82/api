@@ -7,7 +7,9 @@ app.use(express.json()); // Permite trabalhar com JSON no corpo das requisiçõe
 
 app.use('/api', routes)
 
-
+app.get('/', (req, res) => {
+  res.send('Hello World!') // Retorna uma mensagem
+})
 
 app.listen(PORT, () => {
   console.log(`Server rodando em http://localhost:${PORT}`) // Inicia o servidor

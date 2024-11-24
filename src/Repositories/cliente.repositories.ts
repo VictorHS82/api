@@ -1,6 +1,17 @@
 import Clientes from '../entities/clientes.entities' 
 
-export const createCliente = async (data: { nome: string, telefone: string, email: string, cidade: string, cep: string, rua: string, num_casa: string, complementos: string}) => {
+interface ClienteData {
+  nome: string;
+  telefone: string;
+  email: string;
+  cidade: string;
+  cep: string;
+  rua: string;
+  num_casa: string;
+  complementos: string;
+}
+
+export const createCliente = async (data: ClienteData) => {
   return Clientes.create({ data }) 
 }
 
