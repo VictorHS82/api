@@ -7,6 +7,8 @@ app.use(express.json()); // Permite trabalhar com JSON no corpo das requisiçõe
 
 app.use('/api', routes)
 
+
+
 app.listen(PORT, () => {
   console.log(`Server rodando em http://localhost:${PORT}`) // Inicia o servidor
 })

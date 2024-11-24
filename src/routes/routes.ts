@@ -1,10 +1,10 @@
-import { Router, Express, Request, Response} from 'express';
-import { createCliente, findAllCliente } from '../Controller/cliente.controller' // Importa os métodos do controlador
+import { Router } from 'express';
+import { createClientes, findAllClientes } from '../controller/cliente.controller'; // Importa os métodos do controlador
 
 const router = Router() // Cria uma instância do Router
 
-router.post('/', createCliente) // Define a rota para criar um usuário
-router.get('/', findAllCliente) // Define a rota para buscar todos os usuários
+router.post('/', createClientes as any) // Define a rota para criar um usuário
+router.get('/', findAllClientes as any) // Define a rota para buscar todos os usuários
 
 
 
