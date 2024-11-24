@@ -4,13 +4,15 @@
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "build": "tsc",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "nodemon --exec ts-node --swc src/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@swc/core": "^1.9.2",
+    "@swc/core": "^1.9.3",
     "@swc/helpers": "^0.5.15",
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
