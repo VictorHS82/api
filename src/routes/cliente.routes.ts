@@ -9,3 +9,7 @@ router.get('/', findAllCliente ) // Define a rota para buscar todos os usuários
 
 
 export default router // Exporta o router
+
+
+
+

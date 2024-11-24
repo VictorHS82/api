@@ -12,7 +12,7 @@ import { createCliente, findAllCliente, findClienteByEmail } from '../Repositori
 // }
 
 
-export const createClienteService = async (data: {nome: string, telefone: string, email: string, cep: string, cidade: string, rua: string, num_casa: string, complementos: string}) => {
+export const createClienteService = async (data: {nome: string, telefone: string, email: string, cidade:string, cep: string, rua: string, num_casa: string, complementos: string}) => {
   const cliente = await findClienteByEmail(data.email) 
 
   if (cliente) {

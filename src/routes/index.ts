@@ -1,5 +1,5 @@
 import { Router } from 'express' // Importa o Router do Express
-import clienteRouter from './routes' // Importa as rotas de usuário
+import clienteRouter from './cliente.routes' // Importa as rotas de usuário
 
 const router = Router() // Cria uma instância do Router
 
