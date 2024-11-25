@@ -16,9 +16,9 @@ export const findAllClienteService = async () => {
 }
 
 export const updateClienteService = async (id: number, data: { nome: string, telefone: string, email: string, cidade:string, cep: string, rua: string, num_casa: string, complementos: string }) => {
-  const user = await findClienteById(id) // Busca um usuário pelo id
+  const cliente = await findClienteById(id) // Busca um usuário pelo id
 
-  if (!user) {
+  if (!cliente) {
     throw new Error('Cliente não encontrado') // Se o usuário não existir, lança um erro
   }
 
@@ -26,9 +26,9 @@ export const updateClienteService = async (id: number, data: { nome: string, tel
 }
 
 export const deleteClienteService = async (id: number) => {
-  const user = await findClienteById(id) // Busca um usuário pelo id
+  const cliente = await findClienteById(id) // Busca um usuário pelo id
 
-  if (!user) {
+  if (!cliente) {
     throw new Error('Cliente não encontrado') // Se o usuário não existir, lança um erro
   }
 
