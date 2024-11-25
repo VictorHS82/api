@@ -1,5 +1,5 @@
 import { Request, Response } from 'express' // Importa os tipos do Express
-import { createClienteService, findAllClienteService } from '../Services/cliente.services' // Importa os métodos do serviço
+import { createClienteService, findAllClienteService, updateClienteService, deleteClienteService } from '../Services/cliente.services' // Importa os métodos do serviço
 
 export const createCliente = async (req: Request, res: Response) => {
   try {
@@ -16,4 +16,21 @@ export const findAllCliente = async (req: Request, res: Response) => {
 }
 
 
+export const updateCliente = async (req: Request, res: Response) => {
+  try {
+    const user = await updateClienteService(Number(req.params.id), req.body) // Atualiza um usuário
+    return res.status(200).json(user) // Retorna o usuário atualizado
+  } catch (error) {
+    return res.status(400).json({ message: error }) // Retorna um erro
+  }
+}
+
+export const deleteCliente = async (req: Request, res: Response) => {
+  try {
+    await deleteClienteService(Number(req.params.id)) // Deleta um usuário
+    return res.status(204).send() // Retorna uma resposta vazia
+  } catch (error) {
+    return res.status(400).json({ message: error }) // Retorna um erro
+  }
+}
 

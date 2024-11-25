@@ -1,15 +1,4 @@
-import { createCliente, findAllCliente, findClienteByEmail } from '../Repositories/cliente.repositories' 
-
-// interface ClienteData {
-//   nome: string;
-//   telefone: string;
-//   email: string;
-//   cidade: string;
-//   cep: string;
-//   rua: string;
-//   num_casa: string;
-//   complementos: string;
-// }
+import { createCliente, findAllCliente, findClienteByEmail, updateCliente, findClienteById, deleteCliente } from '../Repositories/cliente.repositories' 
 
 
 export const createClienteService = async (data: {nome: string, telefone: string, email: string, cidade:string, cep: string, rua: string, num_casa: string, complementos: string}) => {
@@ -26,7 +15,25 @@ export const findAllClienteService = async () => {
   return findAllCliente() 
 }
 
+export const updateClienteService = async (id: number, data: { nome: string, telefone: string, email: string, cidade:string, cep: string, rua: string, num_casa: string, complementos: string }) => {
+  const user = await findClienteById(id) // Busca um usuário pelo id
 
+  if (!user) {
+    throw new Error('Cliente não encontrado') // Se o usuário não existir, lança um erro
+  }
+
+  return updateCliente(id, data) // Atualiza um usuário
+}
+
+export const deleteClienteService = async (id: number) => {
+  const user = await findClienteById(id) // Busca um usuário pelo id
+
+  if (!user) {
+    throw new Error('Cliente não encontrado') // Se o usuário não existir, lança um erro
+  }
+
+  return deleteCliente(id) // Deleta um usuário
+}
 
 
 
