@@ -73,7 +73,7 @@ model Orcamento{
   visitaId Int @unique
   pecas Pecas @relation(fields: [pecasid], references: [id])
   pecasid Int @unique
-  nome_responsavel Int 
+  nome_responsavel String
   khw_consumido_ultimo_ano Int
   quantidade_pecas Int
   valor_instacao Int
