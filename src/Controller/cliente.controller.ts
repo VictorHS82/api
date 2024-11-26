@@ -18,8 +18,8 @@ export const findAllCliente = async (req: Request, res: Response) => {
 
 export const updateCliente = async (req: Request, res: Response) => {
   try {
-    const user = await updateClienteService(Number(req.params.id), req.body) // Atualiza um usuário
-    return res.status(200).json(user) // Retorna o usuário atualizado
+    const cliente = await updateClienteService(Number(req.params.id), req.body) // Atualiza um usuário
+    return res.status(200).json(cliente) // Retorna o usuário atualizado
   } catch (error) {
     return res.status(400).json({ message: error }) // Retorna um erro
   }

@@ -17,7 +17,7 @@ model Clientes{
   id Int @id @default(autoincrement())
   nome String
   telefone String @unique
-  email String
+  email String @unique
   cidade String
   cep String
   rua String
@@ -36,7 +36,7 @@ model Pecas{
   ncm String
   leadtime Int
   tempo_garantia Int
-  orcamento Orcamento?
+  orcamento Orcamento[]
 }
 
 
