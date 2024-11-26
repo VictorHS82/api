@@ -1,6 +1,6 @@
 import Orcamento from '../entities/orçamento.entities' 
 
-export const createOrçamento = async ( data:{
+export const createOrçamento = async ( data: {
     clienteId: number; 
     visitaId: number;  
     pecasId: number;   
@@ -11,8 +11,8 @@ export const createOrçamento = async ( data:{
     valor_homologacao: number;             
     descontos: number;                     
     forma_pagamento: string;               
-    prazo_instalacao: Date;                
-    prazo_homolagacao: Date}) => {
+    prazo_instalacao: number;                
+    prazo_homolagacao: number}) => {
   return Orcamento.create({ data }) 
 }
 

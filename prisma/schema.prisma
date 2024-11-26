@@ -69,7 +69,7 @@ model Orcamento{
   clienteId Int @unique 
   visitaId Int @unique
   pecasid Int @unique
-  nome_responsavel String 
+  nome_responsavel Int 
   khw_consumido_ultimo_ano Int
   quantidade_pecas Int
   valor_instalacao Int
