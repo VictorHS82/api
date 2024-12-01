@@ -12,8 +12,8 @@ export const createOrçamentoService = async (data: {
     valor_homologacao: number;             
     descontos: number;                     
     forma_pagamento: string;               
-    prazo_instalacao: Date;                
-    prazo_homolagacao: Date }) => {
+    prazo_instalacao: number;                
+    prazo_homolagacao: number; }) => {
   const Orçamento = await findOrçamentoByclienteId(data.clienteId) 
 
   if (Orçamento) {
@@ -27,7 +27,8 @@ export const findAllOrçamentoService = async () => {
   return findAllOrçamento() 
 }
 
-export const updateOrçamentoService = async (clienteId: number, data: {   
+export const updateOrçamentoService = async (Id: number, data: {   
+    clienteId: number;
     visitaId: number;  
     pecasId: number;   
     nome_responsavel: string;              
@@ -37,15 +38,15 @@ export const updateOrçamentoService = async (clienteId: number, data: {
     valor_homologacao: number;             
     descontos: number;                     
     forma_pagamento: string;               
-    prazo_instalacao: Date;                
-    prazo_homolagacao: Date  }) => {
-  const Orçamento = await findOrçamentoByclienteId(clienteId) // Busca um usuário pelo id
+    prazo_instalacao: number;                
+    prazo_homolagacao: number;  }) => {
+  const Orçamento = await findOrçamentoByclienteId(Id) // Busca um usuário pelo id
 
   if (!Orçamento) {
     throw new Error('Orçamento não encontrado') // Se o usuário não existir, lança um erro
   }
 
-  return updateOrçamento(clienteId, data) // Atualiza um usuário
+  return updateOrçamento(Id, data) // Atualiza um usuário
 }
 
 export const deleteOrçamentoService = async (clienteId: number) => {
