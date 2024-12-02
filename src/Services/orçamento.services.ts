@@ -13,7 +13,8 @@ export const createOrçamentoService = async (data: {
     descontos: number;                     
     forma_pagamento: string;               
     prazo_instalacao: number;                
-    prazo_homolagacao: number; }) => {
+    prazo_homolagacao: number;
+    valor_total: number; }) => {
   const Orçamento = await findOrçamentoByclienteId(data.clienteId) 
 
   if (Orçamento) {
@@ -39,7 +40,8 @@ export const updateOrçamentoService = async (Id: number, data: {
     descontos: number;                     
     forma_pagamento: string;               
     prazo_instalacao: number;                
-    prazo_homolagacao: number;  }) => {
+    prazo_homolagacao: number;
+    valor_total: number;  }) => {
   const Orçamento = await findOrçamentoByclienteId(Id) // Busca um usuário pelo id
 
   if (!Orçamento) {

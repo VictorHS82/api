@@ -12,6 +12,7 @@ export const generateOrcamentoPdf = async (orcamento: {
   forma_pagamento: string;
   prazo_instalacao: number;
   prazo_homolagacao: number;
+  valor_total: number;
 }) => {
   try {
     // Diretório onde os PDFs serão salvos
@@ -47,7 +48,8 @@ export const generateOrcamentoPdf = async (orcamento: {
       .text(`Descontos: R$ ${orcamento.descontos}`)
       .text(`Forma de Pagamento: ${orcamento.forma_pagamento}`)
       .text(`Prazo de Instalação: ${orcamento.prazo_instalacao} dias`)
-      .text(`Prazo de Homologação: ${orcamento.prazo_homolagacao} dias`);
+      .text(`Prazo de Homologação: ${orcamento.prazo_homolagacao} dias`)
+      .text(`Prazo de Homologação: ${orcamento.valor_total} dias`);
 
     // Finaliza o PDF
     doc.end();

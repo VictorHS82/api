@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Gestão de Dados",
+      "version": "1.0.0",
+      "description": "API para gerenciar clientes, orçamentos, visitas, peças e fornecedores"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/api"
+      }
+    ],
+    "paths": {
+      "/pdforcamento/{id}": {
+        "get": {
+          "summary": "Gera um PDF do orçamento",
+          "description": "Gera e retorna o arquivo PDF do orçamento especificado pelo ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "ID do orçamento para o qual o PDF será gerado",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "PDF gerado com sucesso",
+              "content": {
+                "application/pdf": {
+                  "schema": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Orçamento não encontrado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Orçamento não encontrado"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Erro interno ao gerar o PDF",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Erro ao gerar o PDF"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+  

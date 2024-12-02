@@ -3,6 +3,6 @@ import { downloadOrcamentoPdf } from '../Controller/pdforçamento.controller';
 
 const router = Router();
 
-router.get('/:id', downloadOrcamentoPdf);
+router.get('/:id', downloadOrcamentoPdf as any);
 
 export default router;

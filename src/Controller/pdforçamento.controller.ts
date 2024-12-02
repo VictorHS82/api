@@ -27,6 +27,7 @@ export const downloadOrcamentoPdf = async (req: Request, res: Response) => {
       forma_pagamento: orcamento.forma_pagamento,
       prazo_instalacao: orcamento.prazo_instalacao,
       prazo_homolagacao: orcamento.prazo_homolagacao,
+      valor_total: orcamento.valor_total,
     });
 
     // Envia o PDF como resposta

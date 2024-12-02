@@ -78,4 +78,5 @@ model Orcamento{
   forma_pagamento String
   prazo_instalacao Int
   prazo_homolagacao Int
+  valor_total Int
 }

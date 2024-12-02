@@ -3,10 +3,10 @@ import { createCliente, findAllCliente, updateCliente, deleteCliente } from '../
 
 const router = Router() // Cria uma instância do Router
 
-router.post('/', createCliente ) // Define a rota para criar um usuário
-router.get('/', findAllCliente ) // Define a rota para buscar todos os usuários
-router.patch('/:id', updateCliente) // Define a rota para atualizar um usuário
-router.delete('/:id', deleteCliente) // Define a rota para deletar um usuário
+router.post('/', createCliente as any ) // Define a rota para criar um cliente
+router.get('/', findAllCliente as any ) // Define a rota para buscar todos os usuários
+router.patch('/:id', updateCliente as any) // Define a rota para atualizar um usuário
+router.delete('/:id', deleteCliente as any) // Define a rota para deletar um usuário
 
 export default router // Exporta o router
 

@@ -1,0 +1,63 @@
+{
+    "/visitas": {
+      "get": {
+        "summary": "Lista todas as visitas",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/visita"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona uma visita",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVisita"
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Visita criada",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/visita"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Erro",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

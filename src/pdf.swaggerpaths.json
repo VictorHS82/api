@@ -1,0 +1,62 @@
+{
+    "get": {
+      "summary": "Gera o PDF de um orçamento",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID do orçamento para geração do PDF",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "PDF gerado com sucesso",
+          "content": {
+            "application/pdf": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Orçamento não encontrado",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Orçamento não encontrado"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Erro interno ao gerar o PDF",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Erro ao gerar o PDF"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

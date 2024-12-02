@@ -12,7 +12,9 @@ export const createOrçamento = async ( data: {
     descontos: number;                     
     forma_pagamento: string;               
     prazo_instalacao: number;                
-    prazo_homolagacao: number; }) => {
+    prazo_homolagacao: number;
+    valor_total: number;  
+  }) => {
   return Orcamento.create({ data }) 
 }
 
@@ -36,7 +38,9 @@ export const updateOrçamento = async (id: number, data: {
     descontos: number;                     
     forma_pagamento: string;               
     prazo_instalacao: number;                
-    prazo_homolagacao: number; }) => {
+    prazo_homolagacao: number;
+    valor_total: number;
+ }) => {
   return Orcamento.update({ where: { id }, data }) // Atualiza um usuário
 }
 

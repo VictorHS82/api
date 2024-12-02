@@ -1,0 +1,389 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Gestão de Dados",
+    "version": "1.0.0",
+    "description": "API para gerenciar clientes, orçamentos, visitas, peças e fornecedores"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "paths": {
+    "/clientes": {
+      "get": {
+        "summary": "Lista todos os clientes",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/cliente"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um cliente",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCliente"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cliente criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/cliente"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orcamentos": {
+      "get": {
+        "summary": "Lista todos os orçamentos",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/orcamento"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um orçamento",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrcamento"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Orçamento criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/orcamento"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/visitas": {
+      "get": {
+        "summary": "Lista todas as visitas",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/visita"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona uma visita",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVisita"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Visita criada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/visita"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pecas": {
+      "get": {
+        "summary": "Lista todas as peças",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/peca"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona uma peça",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePeca"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Peça criada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/peca"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fornecedores": {
+      "get": {
+        "summary": "Lista todos os fornecedores",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/fornecedor"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Adiciona um fornecedor",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFornecedor"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Fornecedor criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/fornecedor"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cliente": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "nome": { "type": "string" },
+          "telefone": { "type": "string" },
+          "email": { "type": "string" },
+          "cidade": { "type": "string" },
+          "cep": { "type": "string" },
+          "rua": { "type": "string" },
+          "num_casa": { "type": "string" },
+          "complemtos": { "type": "string" }
+        }
+      },
+      "CreateCliente": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "email": { "type": "string" },
+          "telefone": { "type": "string" },
+          "endereco": { "type": "string" },
+          "cidade": { "type": "string" },
+          "cep": { "type": "string" },
+          "rua": { "type": "string" },
+          "num_casa": { "type": "string" },
+          "complemtos": { "type": "string" }
+        }
+      },
+      "Orcamento": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "clienteId": { "type": "integer" },
+          "visitaId": { "type": "integer" },
+          "pecasId": { "type": "integer" },
+          "nome_responsavel": {"type": "string"}, 
+          "khw_consumido_ultimo_ano": {"type": "integer"}, 
+          "quantidade_pecas": {"type": "integer"},
+          "valor_instalacao": {"type": "integer"},
+          "valor_homologacao": {"type": "integer"},
+          "descontos": {"type": "integer"},
+          "forma_pagamento": {"type": "string"},
+          "prazo_instalacao": {"type": "integer"},
+          "prazo_homolagacao": {"type": "integer"},
+          "valor_total": {"type": "integer"}
+        }
+      },
+      "CreateOrcamento": {
+        "type": "object",
+        "properties": {
+          "clienteId": { "type": "integer" },
+          "visitaId": { "type": "integer" },
+          "pecasId": { "type": "integer" },
+          "nome_responsavel": {"type": "string"}, 
+          "khw_consumido_ultimo_ano": {"type": "integer"}, 
+          "quantidade_pecas": {"type": "integer"},
+          "valor_instalacao": {"type": "integer"},
+          "valor_homologacao": {"type": "integer"},
+          "descontos": {"type": "integer"},
+          "forma_pagamento": {"type": "string"},
+          "prazo_instalacao": {"type": "integer"},
+          "prazo_homolagacao": {"type": "integer"},
+          "valor_total": {"type": "integer"}
+        }
+      },
+      "Visita": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "clienteId": { "type": "integer" },
+          "tipoEdificao":{"type": "string"}, 
+          "tipo_telha": {"type": "string"},
+          "localizacao_imovel": {"type": "String"},
+          "orientacao_telhado": {"type": "string"},
+          "inclinacao_telhado": {"type": "integer"},
+          "ponto_de_ancoragem": {"type": "string"},
+          "espaco_de_elevacao_ate_o_telhado": {"type": "integer"},
+          "informacoes_adicionais": {"type": "string"}
+        }
+      },
+      "CreateVisita": {
+        "type": "object",
+        "properties": {
+          "clienteId": { "type": "integer" },
+          "tipoEdificao":{"type": "string"}, 
+          "tipo_telha": {"type": "string"},
+          "localizacao_imovel": {"type": "String"},
+          "orientacao_telhado": {"type": "string"},
+          "inclinacao_telhado": {"type": "integer"},
+          "ponto_de_ancoragem": {"type": "string"},
+          "espaco_de_elevacao_ate_o_telhado": {"type": "integer"},
+          "informacoes_adicionais": {"type": "string"}
+        }
+      },
+      "Peca": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "descricao": { "type": "string" },
+          "especificacao_peca_componente": { "type": "string" },
+          "valor_liquido_unitario": {"type": "string"},
+          "ncm": {"type": "string"}, 
+          "leadtime": {"type": "integer"},
+          "tempo_garantia": {"type": "integer"}  
+        }
+      },
+      "CreatePeca": {
+        "type": "object",
+        "properties": {
+          "descricao": { "type": "string" },
+          "especificacao_peca_componente": { "type": "string" },
+          "valor_liquido_unitario": {"type": "string"},
+          "ncm": {"type": "string"}, 
+          "leadtime": {"type": "integer"},
+          "tempo_garantia": {"type": "integer"}  
+        }
+      },
+      "Fornecedor": {
+        "type": "object",
+        "properties": {
+          "cnpj": {"type": "integer"},
+          "nome_empresa": {"type": "string"},
+          "razao_social": {"type": "string"},
+          "nome_vendedor": {"type": "string"},          
+          "telefone_fornecedor": {"type": "integer"}, 
+          "dados_bancarios": {"type": "integer"}, 
+          "forma_recebimento": {"type": "string"},
+          "conducao_pagamento": {"type": "string"}
+        }
+      },
+      "CreateFornecedor": {
+        "type": "object",
+        "properties": {
+          "cnpj": {"type": "integer"},
+          "nome_empresa": {"type": "string"},
+          "razao_social": {"type": "string"},
+          "nome_vendedor": {"type": "string"},          
+          "telefone_fornecedor": {"type": "integer"}, 
+          "dados_bancarios": {"type": "integer"}, 
+          "forma_recebimento": {"type": "string"},
+          "conducao_pagamento": {"type": "string"}
+        }
+      }
+    }
+  }
+}
+
+  
